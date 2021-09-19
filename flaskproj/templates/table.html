@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="{{url_for('static', filename='table.js')}}"></script>
+    
+    <link rel="stylesheet" type ="text/css" href="{{ url_for('static', filename='styles/main.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fridge Data</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  </head>
+  <body >
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+    <input id="fileupload" type="file" name="fileupload" />
+    <table id = "payment" class = "styled-table"> 
+      <tr>
+        <th>CPT</th>
+        {%for k,v in data.items()%}
+          <th>
+            {{ k }}
+          </th>
+        {% endfor %}
+      </tr>
+      <tr>
+        <td>
+          Office Visit
+        </td>
+        {%for k,v in data.items() %}
+            <td>
+              <a>{{ v[0] }}</a>
+            </td>
+
+        {% endfor %}
+      </tr>
+      <tr>
+        <td>
+          Depression Survey
+        </td>
+        {%for k,v in data.items() %}
+            <td>
+              <a>{{ v[1] }}</a>
+            </td>
+
+        {% endfor %}
+      </tr>
+    </table>
+  </body>
+</html>
